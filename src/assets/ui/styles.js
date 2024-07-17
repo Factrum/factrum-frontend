@@ -19,6 +19,9 @@ export const colors = {
     gray: "#bbbbbb",
     highlightgray:'#dddddd',
     lightgray:'#f0f0f0',
+    highlightRed: '#F5E1DC',
+    red: '#E46140',
+    highlightBlue: '#D9DCE4',
   };
   
   export const fonts = {

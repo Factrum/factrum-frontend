@@ -1,11 +1,22 @@
 import React from 'react';
+import styled from 'styled-components';
+import LeftProfileBar from '../components/LeftProfileBar'
+import RightProfileBar from '../components/RightProfileBar';
+import StimulationSheet from '../components/stimulationSheet';
+
+const Container = styled.div`
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+`;
 
 function DetailPage() {
   return (
-    <div>
-      <h1>Welcome to the DetailPage Page</h1>
-      <p>This is the DetailPage page of our React application.</p>
-    </div>
+    <Container>
+      <LeftProfileBar />
+      <StimulationSheet />
+      <RightProfileBar />
+    </Container>
   );
 }
 
