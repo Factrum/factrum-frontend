@@ -13,7 +13,7 @@ export const colors = {
     cyan: "#40babd",
     darkblue: "#405277",
     lightCyan: "#BAE2E3",
-    skyblue: "#58bbee",
+    skyblue: "#EDF2FA",
     darkgray: "#323232", 
     midgray: "#777777",
     gray: "#bbbbbb",
@@ -22,6 +22,7 @@ export const colors = {
     highlightRed: '#F5E1DC',
     red: '#E46140',
     highlightBlue: '#D9DCE4',
+    borderBlue: '#A7B3C2',
   };
   
   export const fonts = {

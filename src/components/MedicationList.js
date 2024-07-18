@@ -3,21 +3,16 @@ import styled, { keyframes } from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 import MedicationCard from './MedicationCard';
 import { colors } from '../assets/ui/styles';
+import AddIcon from '../assets/icons/add_icon.png';
 
 const MedicationContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const slideInAnimation = keyframes`
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+const AddIconImage = styled.img`
+  height: 16px;
+  margin-right: 4px;
 `;
 
 const ListHeader = styled.h4`
@@ -28,7 +23,20 @@ const ListHeader = styled.h4`
   border-top: 1px solid ${colors.gray500};
   border-bottom: 1px solid ${colors.gray500};
   padding: 4px 1px;
-`
+`;
+
+const AddMedication = styled.div`
+  display: flex;
+  background-color: ${colors.gray300};
+  color: ${colors.gray900};
+  padding: 10px 30px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 8px;
+  justify-content: center;
+  margin-top: 12px;
+  cursor: pointer;
+`;
 
 const MedicationList = ({ order, nodes, onCardClick, selectedNode }) => {
   const sortedNodes = selectedNode
@@ -57,6 +65,10 @@ const MedicationList = ({ order, nodes, onCardClick, selectedNode }) => {
           />
         </CSSTransition>
       ))}
+      <AddMedication>
+        <AddIconImage src={AddIcon} />
+        처방 입력하기
+      </AddMedication>
     </MedicationContainer>
   );
 };

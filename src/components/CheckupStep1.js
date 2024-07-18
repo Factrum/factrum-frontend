@@ -15,6 +15,7 @@ const Container = styled.div`
   margin: auto;
   position: relative;
   overflow: auto;
+  overflow-x: hidden;
 `;
 
 const Content = styled.div`

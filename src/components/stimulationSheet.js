@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import Xarrow from 'react-xarrows';
 import { colors } from '../assets/ui/styles';
 import Conclusion from './Conclusion';
 import MedicationList from './MedicationList';
 import SideEffectList from './SideEffectList';
+import ModalQRCode from './ModalQRCode'; // QR코드 모달 컴포넌트 import
 
 const Section = styled.div`
   flex: 4;
@@ -70,6 +71,7 @@ const StimulationSheet = () => {
   const [data, setData] = useState(null);
   const [activeEdges, setActiveEdges] = useState([]);
   const [selectedNode, setSelectedNode] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태 관리
 
   useEffect(() => {
     fetch('/api/simulationResult.json')
@@ -102,6 +104,14 @@ const StimulationSheet = () => {
 
     setActiveEdges(edgesToHighlight);
     setSelectedNode(startNodeId);
+  };
+
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
   };
 
   if (!data) {
@@ -149,7 +159,7 @@ const StimulationSheet = () => {
               selectedNode={selectedNode}
             />
           </Column>
-          {edges.map((edge) => {
+          {!isModalOpen && edges.map((edge) => {
             const startNode = nodes.find(node => node.id === edge.from);
             const endNode = nodes.find(node => node.id === edge.to);
             let color = colors.highlightRed; 
@@ -177,11 +187,17 @@ const StimulationSheet = () => {
                 startAnchor="right"
                 endAnchor="left"
                 monitorDOMchanges={true}
-                zIndex={activeEdges.some(activeEdge => activeEdge.from === edge.from && activeEdge.to === edge.to) ? 1000 : 0}
+                zIndex={activeEdges.some(activeEdge => activeEdge.from === edge.from && activeEdge.to === edge.to) ? 1 : 0}
               />
             );
           })}
         </Body>
+        
+        <ModalQRCode 
+          isOpen={isModalOpen}
+          onRequestClose={handleModalClose}
+          qrValue="https://example.com"
+        />
       </Content>
     </Section>
   );

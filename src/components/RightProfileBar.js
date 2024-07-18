@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { colors } from '../assets/ui/styles';
+import ModalQRCode from './ModalQRCode';
 
 const Section = styled.div`
   flex: 1;
@@ -93,6 +94,8 @@ const SendButton = styled.button`
 const RightProfileBar = () => {
   const [data, setData] = useState(null);
   const [selectedPrescriptions, setSelectedPrescriptions] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [qrValue, setQrValue] = useState('');
 
   useEffect(() => {
     fetch('/api/simulationResult.json')
@@ -178,6 +181,11 @@ const RightProfileBar = () => {
     // 콘솔에 선택된 데이터를 출력합니다.
     console.log('Selected Scenario:', selectedScenario);
 
+    // QR 코드 생성 값 설정 및 모달 열기
+    setQrValue('http://example.com/result/1');
+    setIsModalOpen(true);
+
+    // 서버로 시나리오 전송 (실패 여부와 상관없이 QR 코드 모달 표시)
     fetch('/api/sendPrescription', {
       method: 'POST',
       headers: {
@@ -189,6 +197,8 @@ const RightProfileBar = () => {
       .then(result => {
         console.log('Successfully sent prescription:', result);
         // Handle success
+        // setQrValue(`http://example.com/result/${result.id}`);
+        // setIsModalOpen(true);
       })
       .catch(error => {
         console.error('Error sending prescription:', error);
@@ -223,6 +233,11 @@ const RightProfileBar = () => {
           ))}
       </Content>
       <SendButton onClick={handleSendClick}>환자에게 전송</SendButton>
+      <ModalQRCode 
+        isOpen={isModalOpen}
+        onRequestClose={() => setIsModalOpen(false)}
+        qrValue={qrValue}
+      />
     </Section>
   );
 };

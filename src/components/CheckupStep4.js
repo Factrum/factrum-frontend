@@ -5,6 +5,7 @@ import { colors } from '../assets/ui/styles';
 import ProgressBar from './ProgressBar';
 import Pain1 from '../assets/images/pain_level_1.png';
 import Pain10 from '../assets/images/pain_level_10.png';
+import PainLevel from '../assets/images/pain_level.png';
 
 const Container = styled.div`
   display: flex;
@@ -127,6 +128,10 @@ const PainLevelButton = styled.button`
   }
 `;
 
+const PainLevelImage = styled.img`
+  width: 100%;
+`;
+
 
 const Step4 = ({ formData, setFormData, handleSubmit }) => {
   const navigate = useNavigate();
@@ -169,17 +174,7 @@ const Step4 = ({ formData, setFormData, handleSubmit }) => {
 
         <Label>통증의 크기를 선택해주세요 (1-10)</Label>
         <PainLevelContainer>
-          <PainContainer>
-            <PainImage src={Pain1} alt="Pain Level 1"/>
-            <PainText>
-              <PainLevelNumber>1</PainLevelNumber>
-            <br/>전혀 통증이<br/>없습니다.</PainText>
-          </PainContainer>
-          <PainContainer>
-            <PainImage src={Pain10} alt="Pain Level 10"/>
-            <PainText><PainLevelNumber>10</PainLevelNumber>
-            <br/>견디기 어려운<br/>극심한 통증입니다.</PainText>
-          </PainContainer>
+          <PainLevelImage src={PainLevel} />
         </PainLevelContainer>
         {[...Array(10)].map((_, i) => (
             <PainLevelButton

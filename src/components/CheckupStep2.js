@@ -2,26 +2,27 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { colors } from '../assets/ui/styles';
-import ProgressBar from './ProgressBar'
+import ProgressBar from './ProgressBar';
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   margin: auto;
   position: relative;
-  overflow: auto; 
+  overflow: hidden;
 `;
 
 const Content = styled.div`
-  padding: 10px 24px; /* 패딩 추가 */
+  padding: 10px 24px;
   background-color: #ffffff;
   border-radius: 8px;
-  max-width: 360px;
+  max-width: 420px;
   width: 100%;
   position: relative;
   letter-spacing: -0.3px;
+  box-sizing: border-box; /* 패딩 추가 */
 `;
 
 const FormContainer = styled.div`
@@ -65,20 +66,19 @@ const Input = styled.input`
 `;
 
 const InputHeightWeight = styled.input`
-width: 44%;
-margin-left: 40px;
-padding: 10px;
-border: 1px solid ${colors.gray300};
-border-radius: 4px;
-box-sizing: border-box;
+  width: calc(50% - 12px); /* 패딩과 동일한 값 */
+  padding: 10px;
+  border: 1px solid ${colors.gray300};
+  border-radius: 4px;
+  box-sizing: border-box;
 `;
 
 const InputBasic = styled.input`
-width: 24%;
-padding: 10px;
-border: 1px solid ${colors.gray300};
-border-radius: 4px;
-box-sizing: border-box;
+  width: calc(50% - 12px); /* 패딩과 동일한 값 */
+  padding: 10px;
+  border: 1px solid ${colors.gray300};
+  border-radius: 4px;
+  box-sizing: border-box;
 `;
 
 const Unit = styled.span`
@@ -93,22 +93,22 @@ const MaskedNumbers = styled.span`
   color: ${colors.gray900};
 `;
 
-const Label = styled.label` 
+const Label = styled.label`
   font-size: 16px;
   font-weight: 700;
   color: ${colors.gray700};
   margin-top: 8px;
   padding-bottom: 4px;
-  display: block; 
+  display: block;
 `;
 
-const LabelBasic = styled.label` 
-width: 16%;
-font-size: 16px;
-margin-right: 10px;
-font-weight: 700;
-text-align: right;
-color: ${colors.gray700};
+const LabelBasic = styled.label`
+  width: 16%;
+  font-size: 16px;
+  margin-right: 10px;
+  font-weight: 700;
+  text-align: right;
+  color: ${colors.gray700};
 `;
 
 const IdContainer = styled.div`
@@ -117,7 +117,7 @@ const IdContainer = styled.div`
 `;
 
 const IdInput = styled.input`
-  width: 45%;
+  width: calc(50% - 12px); /* 패딩과 동일한 값 */
   padding: 10px;
   border: 1px solid ${colors.gray300};
   border-radius: 4px;
@@ -180,7 +180,7 @@ const Step2 = ({ formData, setFormData }) => {
   return (
     <Container>
       <Content>
-        <ProgressBar currentStep={1}/>
+        <ProgressBar currentStep={1} />
         <FormContainer>
           <Title>1. 기본 정보</Title>
           <Subtitle>환자 개인 정보</Subtitle>
