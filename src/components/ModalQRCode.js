@@ -1,4 +1,3 @@
-// ModalQRCode.js
 import React from 'react';
 import Modal from 'react-modal';
 import styled from 'styled-components';
@@ -13,7 +12,7 @@ const ModalContainer = styled.div`
   justify-content: center;
   padding: 48px;
   box-sizing: border-box;
-  z-index: 1000; 
+  z-index: 2000; 
   width: 60vw;
   height: 70vh;
   background-color: ${colors.white};
@@ -81,6 +80,7 @@ const ModalQRCode = ({ isOpen, onRequestClose, qrValue }) => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          zIndex: 2000
         },
         content: {
           position: 'relative',

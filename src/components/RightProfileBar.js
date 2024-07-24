@@ -96,6 +96,15 @@ const RightProfileBar = () => {
   const [selectedPrescriptions, setSelectedPrescriptions] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [qrValue, setQrValue] = useState('');
+  const baseURL = process.env.REACT_APP_API_URL;
+  const [patientInfo, setPatientInfo] = useState(null);
+
+  useEffect(() => {
+    fetch('/api/patientInfo.json')
+      .then(response => response.json())
+      .then(data => setPatientInfo(data))
+      .catch(error => console.error('Error fetching patient info:', error));
+  }, []);
 
   useEffect(() => {
     fetch('/api/simulationResult.json')
@@ -178,32 +187,29 @@ const RightProfileBar = () => {
       }
     });
 
-    // 콘솔에 선택된 데이터를 출력합니다.
-    console.log('Selected Scenario:', selectedScenario);
-
     // QR 코드 생성 값 설정 및 모달 열기
-    setQrValue('http://example.com/result/1');
-    setIsModalOpen(true);
+    if (patientInfo) {
+      setQrValue(`${baseURL}/result/${patientInfo.id}`); // 환자 ID를 포함하여 결과 페이지 URL 생성
+      setIsModalOpen(true);
 
-    // 서버로 시나리오 전송 (실패 여부와 상관없이 QR 코드 모달 표시)
-    fetch('/api/sendPrescription', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ id: 1, scenario: selectedScenario }),
-    })
-      .then(response => response.json())
-      .then(result => {
-        console.log('Successfully sent prescription:', result);
-        // Handle success
-        // setQrValue(`http://example.com/result/${result.id}`);
-        // setIsModalOpen(true);
+      // 서버로 시나리오 전송 (실패 여부와 상관없이 QR 코드 모달 표시)
+      fetch('/api/sendPrescription', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: 1, scenario: selectedScenario }),
       })
-      .catch(error => {
-        console.error('Error sending prescription:', error);
-        // Handle error
-      });
+        .then(response => response.json())
+        .then(result => {
+          console.log('Successfully sent prescription:', result);
+          // Handle success
+        })
+        .catch(error => {
+          console.error('Error sending prescription:', error);
+          // Handle error
+        });
+    }
   };
 
   return (

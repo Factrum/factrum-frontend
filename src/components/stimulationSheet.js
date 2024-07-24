@@ -49,6 +49,10 @@ const Headers = styled.div`
   width: 100%;
   padding: 10px 50px;
   box-sizing: border-box;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
 `;
 
 const Body = styled.div`
@@ -71,7 +75,7 @@ const StimulationSheet = () => {
   const [data, setData] = useState(null);
   const [activeEdges, setActiveEdges] = useState([]);
   const [selectedNode, setSelectedNode] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태 관리
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     fetch('/api/simulationResult.json')
@@ -187,7 +191,7 @@ const StimulationSheet = () => {
                 startAnchor="right"
                 endAnchor="left"
                 monitorDOMchanges={true}
-                zIndex={activeEdges.some(activeEdge => activeEdge.from === edge.from && activeEdge.to === edge.to) ? 1 : 0}
+                zIndex={isModalOpen ? -1 : (activeEdges.some(activeEdge => activeEdge.from === edge.from && activeEdge.to === edge.to) ? 1 : 0)}
               />
             );
           })}

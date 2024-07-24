@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { colors } from '../assets/ui/styles';
 import ProgressBar from './ProgressBar';
-import Pain1 from '../assets/images/pain_level_1.png';
-import Pain10 from '../assets/images/pain_level_10.png';
 import PainLevel from '../assets/images/pain_level.png';
 
 const Container = styled.div`
@@ -56,18 +54,7 @@ const PainContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   margin-top: 16px;
-  flex-direction: column;
-`;
-
-const PainImage = styled.img`
-  height: 88px;
-`;
-
-const PainText = styled.span`
-  font-size: 14px;
-  width: 120px;
-  color: ${colors.gray700};
-  text-align: center;
+  flex-direction: row;
 `;
 
 const PainLevelContainer = styled.div`
@@ -76,12 +63,6 @@ const PainLevelContainer = styled.div`
   align-items: flex-start;
   
 `;
-
-const PainLevelNumber = styled.span`
-color: ${colors.gray700};
-font-size: 28px;
-font-weight: 800;
-`
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -115,11 +96,11 @@ const PainLevelButton = styled.button`
   color: ${props => props.selected ? 'white' : colors.gray700};
   border: none;
   padding: 4px;
-  width: 34px;
+  width: 30px;
   border-radius: 2px;
   cursor: pointer;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   margin: 0 1px;
   margin-top: 18px;
   &:hover {
@@ -176,6 +157,7 @@ const Step4 = ({ formData, setFormData, handleSubmit }) => {
         <PainLevelContainer>
           <PainLevelImage src={PainLevel} />
         </PainLevelContainer>
+        <PainContainer>
         {[...Array(10)].map((_, i) => (
             <PainLevelButton
               key={i + 1}
@@ -185,7 +167,7 @@ const Step4 = ({ formData, setFormData, handleSubmit }) => {
               {i + 1}
             </PainLevelButton>
           ))}
-
+        </PainContainer>
         <ButtonContainer>
           <Button onClick={handlePrev}>이전</Button>
           <Button onClick={handleSubmit}>제출</Button>

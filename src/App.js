@@ -15,7 +15,7 @@ function App() {
         <Route path="/stimulation" element={<DetailPage />} />
         <Route path="/checkup/*" element={<HealthCheckupPage />} />
         <Route path="/result/:patientId/:option" element={<ResultPage />} />
-        <Route path="/result" element={<ResultSheetPage />} /> ResultSheetPage 경로 수정
+        <Route path="/result/:patientId" element={<ResultSheetPage />} />
       </Routes>
     </Router>
   );

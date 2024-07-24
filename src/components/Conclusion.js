@@ -15,6 +15,9 @@ const ConclusionWrapper = styled.div`
   font-size: 12px;
   border-radius: 12px;
   padding: 16px 20px;
+  @media (max-width: 1200px) {
+    width: 90%;
+  }
 `;
 
 const ConclusionTitle = styled.h2`
