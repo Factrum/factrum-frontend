@@ -10,12 +10,12 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<DetailPage />} />
-        <Route path="/patients" element={<PatientListPage />} />
-        <Route path="/stimulation" element={<DetailPage />} />
-        <Route path="/checkup/*" element={<HealthCheckupPage />} />
-        <Route path="/result/:patientId/:option" element={<ResultPage />} />
-        <Route path="/result/:patientId" element={<ResultSheetPage />} />
+        <Route path="factrum-frontend/" element={<DetailPage />} />
+        <Route path="factrum-frontend/patients" element={<PatientListPage />} />
+        <Route path="factrum-frontend/stimulation" element={<DetailPage />} />
+        <Route path="factrum-frontend/checkup/*" element={<HealthCheckupPage />} />
+        <Route path="factrum-frontend/result/:patientId/:option" element={<ResultPage />} />
+        <Route path="factrum-frontend/result/:patientId" element={<ResultSheetPage />} />
       </Routes>
     </Router>
   );
