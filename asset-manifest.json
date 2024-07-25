@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/factrum-frontend/static/css/main.708b509f.css",
-    "main.js": "/factrum-frontend/static/js/main.240ed4fd.js",
+    "main.js": "/factrum-frontend/static/js/main.07fabd3e.js",
     "static/js/453.4ae4dfae.chunk.js": "/factrum-frontend/static/js/453.4ae4dfae.chunk.js",
     "static/media/landing_image.png": "/factrum-frontend/static/media/landing_image.f6fac8132761a24ecfec.png",
     "static/media/pain_level.png": "/factrum-frontend/static/media/pain_level.12a2d4a6c3e621f211db.png",
@@ -14,11 +14,11 @@
     "static/media/landing_bg_image.png": "/factrum-frontend/static/media/landing_bg_image.8580ad3573e798758fdb.png",
     "index.html": "/factrum-frontend/index.html",
     "main.708b509f.css.map": "/factrum-frontend/static/css/main.708b509f.css.map",
-    "main.240ed4fd.js.map": "/factrum-frontend/static/js/main.240ed4fd.js.map",
+    "main.07fabd3e.js.map": "/factrum-frontend/static/js/main.07fabd3e.js.map",
     "453.4ae4dfae.chunk.js.map": "/factrum-frontend/static/js/453.4ae4dfae.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.708b509f.css",
-    "static/js/main.240ed4fd.js"
+    "static/js/main.07fabd3e.js"
   ]
 }
