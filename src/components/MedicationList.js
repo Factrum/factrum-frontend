@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 import MedicationCard from './MedicationCard';
 import { colors } from '../assets/ui/styles';

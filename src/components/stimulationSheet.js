@@ -110,10 +110,6 @@ const StimulationSheet = () => {
     setSelectedNode(startNodeId);
   };
 
-  const handleModalOpen = () => {
-    setIsModalOpen(true);
-  };
-
   const handleModalClose = () => {
     setIsModalOpen(false);
   };

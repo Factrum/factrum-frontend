@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import styled, { css, keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { colors } from '../assets/ui/styles';
 
 const slideIn = keyframes`
