@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/factrum-frontend/static/css/main.708b509f.css",
+    "main.js": "/factrum-frontend/static/js/main.240ed4fd.js",
+    "static/js/453.4ae4dfae.chunk.js": "/factrum-frontend/static/js/453.4ae4dfae.chunk.js",
+    "static/media/landing_image.png": "/factrum-frontend/static/media/landing_image.f6fac8132761a24ecfec.png",
+    "static/media/pain_level.png": "/factrum-frontend/static/media/pain_level.12a2d4a6c3e621f211db.png",
+    "static/media/header_bar2.png": "/factrum-frontend/static/media/header_bar2.cd42c5035e6acc2d00b9.png",
+    "static/media/header_bar1.png": "/factrum-frontend/static/media/header_bar1.84e05fe86780ceb19b15.png",
+    "static/media/header_bar4.png": "/factrum-frontend/static/media/header_bar4.88b074e1f1f7dc7d9449.png",
+    "static/media/header_bar3.png": "/factrum-frontend/static/media/header_bar3.6d0202fd72f80c69294e.png",
+    "static/media/yag_logo.png": "/factrum-frontend/static/media/yag_logo.5e7eb8f614debb53ff73.png",
+    "static/media/landing_bg_image_blue.png": "/factrum-frontend/static/media/landing_bg_image_blue.de0c7f59319448d4879b.png",
+    "static/media/landing_bg_image.png": "/factrum-frontend/static/media/landing_bg_image.8580ad3573e798758fdb.png",
+    "index.html": "/factrum-frontend/index.html",
+    "main.708b509f.css.map": "/factrum-frontend/static/css/main.708b509f.css.map",
+    "main.240ed4fd.js.map": "/factrum-frontend/static/js/main.240ed4fd.js.map",
+    "453.4ae4dfae.chunk.js.map": "/factrum-frontend/static/js/453.4ae4dfae.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.708b509f.css",
+    "static/js/main.240ed4fd.js"
+  ]
+}
